@@ -1,41 +1,24 @@
+
 ---
 const navItems = [
-  {
-    title: "Inicio",
-    label: "inicio",
-    url: "#",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "#sobre-mi",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "#proyectos",
-  },
-  {
-    title: "Habilidades",
-    label: "habilidades",
-    url: "#habilidades",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "#contacto",
-  },
-]
+  {title: "Inicio", url: "/"},
+  {title: "Pacientes", url: "/pacientes"},
+  {title: "Asistente", url: "/asistente"}
+];
+
+// URL actual para marcar activo
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
-  <nav class="flex px-3 text-sm font-medium rounded-full text-gray-200 justify-center items-center">
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2 transition-all duration-300">
+  <nav id="main-nav" class="flex px-3 text-sm font-medium rounded-full justify-center items-center bg-transparent transition-all duration-300">
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-[#8367c7]"
-          aria-label={link.label}
           href={link.url}
+          class={`relative block px-4 py-2 transition ${
+            currentPath === link.url ? 'text-[#8367c7] font-semibold' : 'text-gray-200 hover:text-[#8367c7]'
+          }`}
         >
           {link.title}
         </a>
@@ -46,44 +29,25 @@ const navItems = [
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const nav = document.getElementById("main-nav");
+    const header = document.querySelector("header");
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-[#8367c7]")
-            } else {
-              item.classList.remove("text-[#8367c7]")
-            }
-          })
-        }
-      })
-    }
+    if (!nav || !header) return;
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        nav.classList.add("bg-[#C9FF6C]", "backdrop-blur-md", "shadow-lg");
+        nav.classList.remove("bg-transparent");
+        header.classList.add("py-1");
       } else {
-        sections.forEach((section) => {
-          observer.observe(section)
-        })
+        nav.classList.remove("bg-[#C9FF6C]", "backdrop-blur-md", "shadow-lg");
+        nav.classList.add("bg-transparent");
+        header.classList.remove("py-1");
       }
-    }
-  })
+    };
+
+    window.addEventListener("scroll", onScroll);
+  });
 </script>
 
 <style>
@@ -91,10 +55,6 @@ const navItems = [
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
-  }
-
-  nav {
-    background-color: #C9FF6C;
   }
 
   @keyframes nav-shadown {
