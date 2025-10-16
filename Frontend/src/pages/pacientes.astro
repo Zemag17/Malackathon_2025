@@ -7,9 +7,139 @@ import SectionContainer from '../components/SectionContainer.astro';
 	title="MindCare Analytics | Pacientes"
 	description=""
 >
-	<main class="px-5">
-		<SectionContainer class="flex flex-col items-center py-44 mb-3">
-			
+	<main class="px-5 pt-20">
+		<!-- Contenedor del buscador -->
+		<div class="w-full max-w-3xl mx-auto">
+			<input
+				id="searchInput"
+				type="text"
+				placeholder="Buscar paciente..."
+				class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+			/>
+		</div>
+
+		<!-- Contenedor principal -->
+		<SectionContainer class="flex flex-col items-center py-10 mb-3 w-full">
+			<div id="results" class="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl"></div>
+
+			<!-- Botón para cargar más pacientes -->
+			<button 
+				id="loadMoreBtn" 
+				class="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+			>
+				Cargar más pacientes
+			</button>
+
+			<!-- Loader -->
+			<div id="loader" class="mt-6 text-gray-300 hidden">Cargando...</div>
 		</SectionContainer>
+
+		<script type="module">
+			const API_URL = "https://g8928fa3f1dce68-malakathondb.adb.eu-madrid-1.oraclecloudapps.com/ords/admin/pacientes/";
+			const searchInput = document.getElementById('searchInput');
+			const resultsContainer = document.getElementById('results');
+			const loadMoreBtn = document.getElementById('loadMoreBtn');
+			const loader = document.getElementById('loader');
+
+			let allPatients = [];
+			let offset = 0;
+			const limit = 25;
+			let isLoading = false;
+			let noMoreData = false;
+			let searchTerm = '';
+
+			async function fetchPatientsBatch(offsetValue) {
+				try {
+					const url = `${API_URL}?offset=${offsetValue}`;
+					const res = await fetch(url);
+					if (!res.ok) return [];
+					const data = await res.json();
+					return data.items ?? [];
+				} catch (err) {
+					console.error('Error fetch:', err);
+					return [];
+				}
+			}
+
+			function formatAge(age) {
+				if (age === null || age === undefined) return 'no especificada';
+				const n = Number(age);
+				if (Number.isFinite(n) && n > 0) return n;
+				return 'no especificada';
+			}
+
+			function renderPatients(filtered) {
+				resultsContainer.innerHTML = '';
+
+				if (filtered.length === 0) {
+					resultsContainer.innerHTML = `
+						<p class="col-span-full text-gray-400 text-center">
+							No se encontraron pacientes
+						</p>`;
+					return;
+				}
+
+				filtered.forEach(p => {
+					const ageText = formatAge(p.edad);
+					const seudonimo = p.seudonimo ?? 'Sin nombre';
+
+					const card = document.createElement('div');
+					card.className = 'p-5 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition';
+					card.innerHTML = `
+						<h3 class="text-lg font-semibold text-gray-800 mb-1">${seudonimo}</h3>
+						<p class="text-sm text-gray-600">Edad: ${ageText}</p>
+						<p class="text-sm text-gray-600">C. Autónoma: ${p["comunidad autónoma"] ?? '—'}</p>
+						<p class="text-sm text-gray-600">País nacimiento: ${p["país nacimiento"] ?? '—'}</p>
+					`;
+					resultsContainer.appendChild(card);
+				});
+			}
+
+			// Filtrar con término actual
+			function applySearch() {
+				const filtered = allPatients.filter(p => {
+					const name = (p.seudonimo || '').toString().toLowerCase();
+					return name.includes(searchTerm);
+				});
+				renderPatients(filtered);
+			}
+
+			searchInput.addEventListener('input', (e) => {
+				searchTerm = (e.target.value || '').toLowerCase();
+				applySearch();
+			});
+
+			loadMoreBtn.addEventListener('click', async () => {
+				if (isLoading || noMoreData) return;
+
+				isLoading = true;
+				loadMoreBtn.classList.add('hidden');
+				loader.classList.remove('hidden');
+
+				const batch = await fetchPatientsBatch(offset);
+				if (!batch || batch.length === 0) {
+					noMoreData = true;
+					loadMoreBtn.textContent = 'No hay más pacientes';
+					loadMoreBtn.disabled = true;
+				} else {
+					allPatients = allPatients.concat(batch);
+					offset += limit;
+					// 👇 Filtrar automáticamente si hay búsqueda activa
+					applySearch();
+				}
+
+				loader.classList.add('hidden');
+				if (!noMoreData) loadMoreBtn.classList.remove('hidden');
+				isLoading = false;
+			});
+
+			(async () => {
+				const firstBatch = await fetchPatientsBatch(offset);
+				allPatients = firstBatch;
+				offset += limit;
+				applySearch();
+			})();
+		</script>
+
 	</main>
 </Layout>
