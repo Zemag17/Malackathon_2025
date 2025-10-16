@@ -18,7 +18,7 @@ Este proyecto forma parte del **II Malackathon 2025**, centrado en el análisis 
 - **Despliegue**: [URL de la aplicación desplegada](https://malackathon-2025-4vpt.vercel.app/)
 
 ### ✅ Hito 3 - Análisis Exploratorio
-- **Herramientas**: [Indica tus herramientas de análisis]
+- **Herramientas**: `Chart.js` para generar las gráficas y la api rest para hacer consultas.
 - **Documentación**: Análisis descriptivo completo en PDF
 
 ## 🔐 Datos y Anonimización
@@ -34,22 +34,11 @@ Este proyecto forma parte del **II Malackathon 2025**, centrado en el análisis 
 - Conservación de variables clínicas relevantes
 - Generación de IDs anónimos únicos
 
-## 📊 Características Principales
-
-### 🔍 Análisis de Datos
-- Dashboard interactivo de ingresos hospitalarios
-- Filtros por diagnóstico, CCAA y período temporal
-- Visualización de tendencias y patrones
-
-### 📈 Visualizaciones
+## 📈 Visualizaciones
 - Gráficos temporales de ingresos
 - Distribución por diagnósticos
 - Mapa de calor por comunidades autónomas
 - Análisis de reingresos y estancias
-
-### 🤖 Integración IA
-- [Describir aquí las funcionalidades de IA implementadas]
-
 
 ## Autores
 
@@ -59,8 +48,8 @@ Este proyecto forma parte del **II Malackathon 2025**, centrado en el análisis 
 
 ## Tecnologias utilizadas
 
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) &nbsp;
-![Python](https://img.shields.io/badge/python-ffde57?style=for-the-badge&logo=python&logoColor=4584b6) &nbsp;
+![Astro](https://img.shields.io/badge/Astro-9F86C0?style=for-the-badge&logo=astro&logoColor=white) &nbsp;
+![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
  &nbsp;
 ![Html](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) &nbsp;
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css&logoColor=white) &nbsp;
@@ -70,8 +59,7 @@ Este proyecto forma parte del **II Malackathon 2025**, centrado en el análisis 
 ## 📞 Contacto
 
 - **Repositorio**: [https://github.com/Zemag17/Malackathon_2025](https://github.com/Zemag17/Malackathon_2025#)
-- **Aplicación desplegada**: [URL de la aplicación]
-- **Base de datos**: [URL de acceso a la BD]
+- **Aplicación desplegada**: [malackathon-2025-4vpt.vercel.app](https://malackathon-2025-4vpt.vercel.app/)
 
 *Desarrollado con 💙 para el II Malackathon 2025*
 
