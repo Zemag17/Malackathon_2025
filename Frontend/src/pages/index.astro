@@ -1,15 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionContainer from '../components/SectionContainer.astro';
+import Categoria from '../components/Categoria.astro';
+import Comunidad from '../components/Comunidad.astro';
+import Temporal from '../components/Temporal.astro';
+import Edad from '../components/Edad.astro';
 ---
 
 <Layout 
 	title="MindCare Analytics | Inicio"
 	description=""
 >
-	<main class="">
-		<SectionContainer class="flex flex-col items-center py-44 mb-3">
-			<div class="bg-white h-96 w-full"></div>
-		</SectionContainer>
+	<main class="flex items-center justify-center gap-5 p-20">
+		<div class="bg-transparent rounded-2xl p-10 border-2 border-white w-[700px]">
+			<Categoria></Categoria>
+		</div>
+
+		<div class="flex flex-col h-[724px] gap-5">
+			<div class="bg-transparent rounded-2xl p-10 border-2 border-white h-1/2">
+				<Comunidad></Comunidad>
+			</div>
+	
+			<div class="bg-transparent rounded-2xl p-10 border-2 border-white h-1/2">
+				<Edad></Edad>
+			</div>
+		</div>
 	</main>
 </Layout>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js" is:client="load"></script>
+<script src="../scripts/categoria"></script>
+<script src="../scripts/comunidad"></script>
+<script src="../scripts/edad"></script>
+<script src="../scripts/temporal"></script>
+
+<script is:inline>
+	const baseColors = [
+		'#C9CBA3',
+		'#FFE1A8',
+		'#E26D5C',
+		'#723D46',
+		'#472D30',
+		'#6F1D1B'
+  	];
+  	const fadedColors = baseColors.map(c => c.replace(', 1)', ', 0.2)'));
+</script>
+

@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={link.url}
           class={`relative block px-4 py-2 transition ${
-            currentPath === link.url ? 'text-[#8367c7] font-semibold' : 'text-gray-200 hover:text-[#8367c7]'
+            currentPath === link.url ? 'text-[#E0B1CB] font-semibold' : 'text-[#E0B1CB] hover:text-[#E0B1CB]'
           }`}
         >
           {link.title}
@@ -36,11 +36,11 @@ const currentPath = Astro.url.pathname;
 
     const onScroll = () => {
       if (window.scrollY > 20) {
-        nav.classList.add("bg-[#C9FF6C]", "backdrop-blur-md", "shadow-lg");
+        nav.classList.add("bg-[#9F86C0]", "backdrop-blur-md", "shadow-lg");
         nav.classList.remove("bg-transparent");
         header.classList.add("py-1");
       } else {
-        nav.classList.remove("bg-[#C9FF6C]", "backdrop-blur-md", "shadow-lg");
+        nav.classList.remove("bg-[#9F86C0]", "backdrop-blur-md", "shadow-lg");
         nav.classList.add("bg-transparent");
         header.classList.remove("py-1");
       }

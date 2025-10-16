@@ -2,7 +2,6 @@
 import '../styles/global.css';
 
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string
@@ -26,11 +25,10 @@ const {title, description} = Astro.props
 	</head>
 	<body>
 		<div class="fixed left-0 top-0 -z-10 h-full w-full">
-			<div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#C9FF6C_100%)]"></div>
+			<div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#231942_40%,#BE95C4_100%)]"></div>
 		</div>
 		<Header />
 		<slot />
-		<Footer />
 	</body>
 </html>
 
