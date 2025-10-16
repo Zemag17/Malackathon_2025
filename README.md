@@ -13,9 +13,9 @@ Este proyecto forma parte del **II Malackathon 2025**, centrado en el análisis 
 - **Vista especial**: `VISTA_MUY_INTERESANTE` con análisis relevante
 
 ### ✅ Hito 2 - Aplicación Web
-- **Tecnologías**: [Indica aquí tus tecnologías: APEX, React, Python, etc.]
+- **Tecnologías**: Astro
 - **Funcionalidades**: Visualización de datos, filtros interactivos, dashboards
-- **Despliegue**: [URL de la aplicación desplegada]
+- **Despliegue**: [URL de la aplicación desplegada](https://malackathon-2025-4vpt.vercel.app/)
 
 ### ✅ Hito 3 - Análisis Exploratorio
 - **Herramientas**: [Indica tus herramientas de análisis]
