@@ -1,9 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
+import SocialPill2 from '../components/SocialPill2.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
+import SobreMi from '../components/SobreMi.astro';
+import Skills from '../components/Skills.astro';
+import Contacto from '../components/Contacto.astro';
+
+import LinkedIn from '../components/icons/LinkedInIcon.astro';
+import GitHub from '../components/icons/GitHubIcon.astro';
+import Mail from '../components/icons/MailIcon.astro';
+import Briefcase from '../components/icons/BriefcaseIcon.astro';
+import Project from '../components/icons/ProjectIcon.astro';
+import Habilidades from '../components/icons/HabilidadesIcon.astro';
+import SobreMiIcon from '../components/icons/SobreMiIcon.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout 
+	title="Porfolio de Hugo Macías Jiménez - Estudiante y desarrollador web"
+	description=""
+>
+	<main class="px-5">
+		<SectionContainer class="flex flex-col items-center py-44 mb-3">
+			<Badge href="https://www.linkedin.com/in/hugo-macias-jimenez-199a7933b/">Disponible para trabajar</Badge>
+
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-4 pb-6 lg:pb-8">
+				<img 
+        			class="rounded-full size-23"
+        			src="/Foto_perfil.webp"
+        			alt="Foto perfil Hugo Macías"
+    			/>
+
+				Hola, soy Hugo Macías
+			</h1>
+
+			<h2 class="text-l lg:text-xl text-wrap text-center max-w-[700px]">
+				<span class="text-[#8367c7] font-semibold">Estudiante de ingeniería informática y desarrollador web</span>
+				<span class="opacity-80 text-white">con ganas de adentrarse en el mundo laboral.</span> 
+				<span class="font-semibold text-white">Desde Málaga, España</span>
+				<span class="opacity-80 text-white">he desarrollado algunas aplicaciones webs por mi cuenta.</span>
+			</h2>
+
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill href="#proyectos">
+					<Project class="size-4 lg:size-6 text-white" />
+					<p class="text-white">Ver proyectos</p>
+				</SocialPill>
+
+				<SocialPill href="#habilidades">
+					<Habilidades class="size-4 lg:size-6 text-white" />
+					<p class="text-white">Ver habilidades</p>
+				</SocialPill>
+			</nav>
+
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill2 href="https://github.com/hugooomaciias">
+					<GitHub class="size-4 lg:size-8 text-white" />
+				</SocialPill2>
+
+				<SocialPill2 href="https://www.linkedin.com/in/hugo-macias-jimenez-199a7933b/">
+					<LinkedIn class="size-4 lg:size-8 text-white" />
+				</SocialPill2>
+
+				<a class='opacity-60 hover:opacity-100' href="#contacto">
+					<Mail class="size-4 lg:size-8 text-white" />
+				</a>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="sobre-mi">
+			<h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+				<SobreMiIcon class="size-7 " />
+				Sobre mí
+			</h2>
+			<SobreMi />
+		</SectionContainer>
+
+		<!-- <SectionContainer id="experiencia">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+				<Briefcase class="size-7" />
+				Experiencia laboral
+			</h2>
+			<Experience />
+		</SectionContainer> -->
+
+		<SectionContainer id="proyectos">
+			<h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+				<Project class="size-7" />
+				Proyectos
+			</h2>
+			<Projects />
+		</SectionContainer>
+
+		<SectionContainer id="habilidades">
+			<h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+				<Habilidades class="size-7 " />
+				Habilidades
+			</h2>
+			<Skills />
+		</SectionContainer>
+
+		<SectionContainer id="contacto">
+			<h2 class="text-3xl text-white font-semibold mb-6 flex gap-x-3 items-center">
+				<Mail class="size-7" />
+				Contacto
+			</h2>
+			<Contacto />
+		</SectionContainer>
+	</main>
 </Layout>

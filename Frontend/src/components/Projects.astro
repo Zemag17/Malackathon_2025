@@ -1,0 +1,101 @@
+---
+import TS from "../components/icons/TSIcon.astro"
+import Angular from "../components/icons/AngularIcon.astro"
+import Maven from "../components/icons/MavenIcon.astro"
+import SpringBoot from "../components/icons/SpringBootIcon.astro"
+import AWS from "../components/icons/AWSIcon.astro"
+import GitHub from "../components/icons/GitHubIcon.astro"
+import Link from "../components/icons/LinkIcon.astro"
+import Desarrollo from "./icons/DesarrolloIcon.astro"
+
+
+import TechPill from "./TechPill.astro"
+import LinkButton from "./LinkButton.astro"
+
+const TAGS = {
+    TS: {
+        name: "TypeScript",
+        class: "",
+        icon: TS,
+    },
+    ANGULAR: {
+        name: "Angular",
+        class: "",
+        icon: Angular,
+    },
+    MAVEN: {
+        name: "Maven",
+        class: "bg-[#C71A36]",
+        icon: Maven,
+    },
+    SPRINGBOOT: {
+        name: "Spring Boot",
+        class: "bg-[#6DB33F]",
+        icon: SpringBoot,
+    },
+    AWS: {
+        name: "AWS",
+        class: "bg-[#232F3E]",
+        icon: AWS,
+    },
+}
+
+const PROJECTS = [
+    {
+        title: 'CloudCare - Una aplicación web para ayudar al personal médico',
+        description: 'Una web donde ver resúmenes evolutivos de tus pacientes y realizar consultas a un asistente virtual sobre tu paciente.',
+        link: '#',
+        github: 'https://github.com/fog-3/CloudCare',
+        image: '/CloudCarePreview.webp',
+        tags: [TAGS.TS, TAGS.ANGULAR, TAGS.MAVEN, TAGS.SPRINGBOOT, TAGS.AWS]
+    },
+    {
+        title: 'Autos Miari - Tu compra-venta y alquiler de coches de confianza',
+        description: 'Una aplicación web para encontrar tu compañero de viaje perfecto, además de poder tasar tu coche y entregarlo a cambio de uno nuevo.',
+        link: '#',
+        github: 'https://github.com/hugooomaciias/Autos-Miari',
+        image: '/AutosMiariPreview.png',
+        tags: [TAGS.TS, TAGS.ANGULAR, TAGS.MAVEN, TAGS.SPRINGBOOT]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ title, description, image, tags, github, link }) => (
+        <article class="text-white flex gap-x-4 mt-8 mb-30">
+            <div>
+                <h3 class="text-xl font-semibold text-pretty">{title}</h3>
+
+                <ul class="flex gap-2 flex-row flex-wrap mt-2 mb-4 text-pretty">
+                    {tags.map(tag => (
+                        <li>
+                            <TechPill class={tag.class}>
+                                <tag.icon class="size-4" />
+                                <p class="text-xs">{tag.name}</p>
+                            </TechPill>
+                        </li>
+                    ))}
+                </ul>
+
+                <p class="text-lg opacity-80 text-pretty">{description}</p>
+
+                <footer class="flex items-end justify-start mt-4 gap-x-4">
+                    {link && (
+                        <LinkButton class="bg-[#8367c7]">
+                            <Desarrollo class="size-6" />
+                            En desarrollo
+                        </LinkButton>
+                    )}
+                    {github && (
+                        <LinkButton class="cursor-pointer" href={github}>
+                            <GitHub class="size-6" />
+                            Código
+                        </LinkButton>
+                    )}
+                </footer>
+            </div>
+            
+            <img class="rounded shadow-2xl shadow-white/10 w-[400px]" loading="lazy" src={image} alt={`Captura de pantalla del proyecto ${title}`}>
+        </article>
+    ))
+}

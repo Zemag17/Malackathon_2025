@@ -1,0 +1,19 @@
+---
+const { skill } = Astro.props;
+const barId = `skill-bar-${skill.nombre.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+<div class="mb-4">
+    <div class="flex justify-between mb-1">
+        <span class="text-sm font-medium">{skill.nombre}</span>
+        <div class="flex">
+            {[...Array(5)].map((_, i) => (
+                <div class={`h-4 w-4 rounded-full mx-0.5 ${i < skill.nivel ? "bg-[#8367c7]" : "bg-white"}`} />
+            ))}
+        </div>
+    </div>
+
+    <div class="w-full bg-secondary rounded-full h-1.5">
+        <div id={barId} class="bg-foreground h-1.5 rounded-full w-0 transition-all duration-1000 ease-out" style={{ width: `${(skill.nivel / 5) * 100}%` }}></div>
+    </div>
+</div>
