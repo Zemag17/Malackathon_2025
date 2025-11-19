@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcetines Temáticos - Presentación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .slide {
+            display: none;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .slide.active {
+            display: flex;
+        }
+
+        /* Sock-themed animations */
+        @keyframes sockSlideIn {
+            0% { transform: translateX(-100%) rotate(-45deg); opacity: 0; }
+            100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+        }
+
+        @keyframes sockSlideOut {
+            0% { transform: translateX(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateX(100%) rotate(45deg); opacity: 0; }
+        }
+
+        @keyframes sockBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        @keyframes sockFadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .sock-enter {
+            animation: sockSlideIn 0.8s ease-out;
+        }
+
+        .sock-exit {
+            animation: sockSlideOut 0.8s ease-in;
+        }
+
+        .sock-bounce {
+            animation: sockBounce 1s infinite;
+        }
+
+        .sock-fade-in {
+            animation: sockFadeIn 0.6s ease-out;
+        }
+
+        .sock-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-prev {
+            left: 20px;
+        }
+
+        .nav-next {
+            right: 20px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 text-white">
+    <!-- Navigation Buttons -->
+    <button class="nav-button nav-prev" onclick="prevSlide()">&#8592;</button>
+    <button class="nav-button nav-next" onclick="nextSlide()">&#8594;</button>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" style="width: 200px;">
+        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+    </div>
+
+    <!-- Slides -->
+    <div id="slide1" class="slide active">
+        <div class="text-center sock-fade-in">
+            <div class="sock-icon sock-bounce">🧦</div>
+            <h1 class="text-6xl font-bold mb-4">Calcetines Temáticos</h1>
+            <p class="text-xl mb-8">¡La empresa que pone diversión en tus pies!</p>
+            <div class="text-4xl">👣</div>
+        </div>
+    </div>
+
+    <div id="slide2" class="slide">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-6">¿Quiénes Somos?</h2>
+            <div class="max-w-2xl mx-auto">
+                <p class="text-lg mb-4">Somos una empresa apasionada por crear calcetines únicos y divertidos que expresan tu personalidad.</p>
+                <p class="text-lg mb-4">Desde calcetines con temas de películas hasta diseños personalizados, ¡tenemos el par perfecto para ti!</p>
+                <div class="flex justify-center space-x-4 mt-8">
+                    <div class="sock-icon">🎬</div>
+                    <div class="sock-icon">🎮</div>
+                    <div class="sock-icon">🎨</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="slide3" class="slide">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-6">Nuestros Productos</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-semibold mb-2">Calcetines Espaciales</h3>
+                    <p>Viaja por el universo con nuestros diseños cósmicos</p>
+                </div>
+                <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                    <div class="text-4xl mb-4">🍕</div>
+                    <h3 class="text-2xl font-semibold mb-2">Calcetines Gourmet</h3>
+                    <p>¡Tu comida favorita en tus pies!</p>
+                </div>
+                <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                    <div class="text-4xl mb-4">🎭</div>
+                    <h3 class="text-2xl font-semibold mb-2">Calcetines Personalizados</h3>
+                    <p>Diseños únicos creados especialmente para ti</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="slide4" class="slide">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-6">¿Por Qué Elegirnos?</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                        <div class="text-3xl mb-3">✨</div>
+                        <h3 class="text-xl font-semibold mb-2">Calidad Premium</h3>
+                        <p>Materiales suaves y duraderos que duran lavado tras lavado</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                        <div class="text-3xl mb-3">🌈</div>
+                        <h3 class="text-xl font-semibold mb-2">Colores Vibrantes</h3>
+                        <p>Tintes resistentes que mantienen su brillo original</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                        <div class="text-3xl mb-3">🚚</div>
+                        <h3 class="text-xl font-semibold mb-2">Envío Rápido</h3>
+                        <p>Entrega en 3-5 días hábiles a cualquier parte del país</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
+                        <div class="text-3xl mb-3">💝</div>
+                        <h3 class="text-xl font-semibold mb-2">Regalos Perfectos</h3>
+                        <p>¡El regalo ideal para cualquier ocasión especial!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="slide5" class="slide">
+        <div class="text-center">
+            <h2 class="text-5xl font-bold mb-6">¡Contáctanos!</h2>
+            <div class="max-w-2xl mx-auto">
+                <p class="text-xl mb-8">¿Listo para darle color a tus pies?</p>
+                <div class="bg-white bg-opacity-20 p-8 rounded-lg backdrop-blur-sm">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <div class="text-2xl mb-2">📧</div>
+                            <p>info@calcetines-tematicos.com</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl mb-2">📱</div>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl mb-2">🌐</div>
+                            <p>www.calcetines-tematicos.com</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl mb-2">📍</div>
+                            <p>Ciudad de México, México</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <div class="sock-icon sock-bounce">🧦✨</div>
+                    <p class="text-lg">¡Gracias por tu atención!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function showSlide(slideNumber) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active', 'sock-enter');
+                slide.classList.add('sock-exit');
+            });
+
+            // Show current slide
+            setTimeout(() => {
+                document.querySelectorAll('.slide').forEach(slide => {
+                    slide.classList.remove('sock-exit');
+                });
+                document.getElementById(`slide${slideNumber}`).classList.add('active', 'sock-enter');
+            }, 400);
+
+            // Update progress bar
+            const progress = ((slideNumber - 1) / (totalSlides - 1)) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>
