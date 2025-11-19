@@ -1,0 +1,354 @@
+---
+import '../styles/global.css';
+const title = "SockStyle - Calcetines Temáticos";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-hidden">
+    <div id="presentation" class="relative w-screen h-screen">
+        
+        <!-- Slide 1: Portada -->
+        <div class="slide active absolute inset-0 flex items-center justify-center" data-transition="stretch">
+            <div class="text-center text-white px-8">
+                <div class="mb-8 text-8xl animate-bounce">🧦</div>
+                <h1 class="text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+                    SockStyle
+                </h1>
+                <p class="text-3xl mb-4 text-purple-200">Calcetines Temáticos que Cuentan tu Historia</p>
+                <p class="text-xl text-purple-300">Donde la moda se encuentra con la personalidad</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Quiénes Somos -->
+        <div class="slide absolute inset-0 flex items-center justify-center" data-transition="pair">
+            <div class="max-w-4xl mx-auto text-white px-12">
+                <h2 class="text-6xl font-bold mb-8 text-center bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                    ¿Quiénes Somos?
+                </h2>
+                <div class="grid grid-cols-2 gap-8 text-lg">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                        <div class="text-5xl mb-4">🎨</div>
+                        <h3 class="text-2xl font-bold mb-3 text-yellow-300">Nuestra Misión</h3>
+                        <p class="text-purple-100">Transformar calcetines ordinarios en obras de arte portables que expresen la personalidad única de cada persona.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                        <div class="text-5xl mb-4">🌟</div>
+                        <h3 class="text-2xl font-bold mb-3 text-yellow-300">Nuestra Visión</h3>
+                        <p class="text-purple-100">Ser la marca líder en calcetines temáticos, llevando alegría y estilo a los pies de millones de personas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Nuestros Productos -->
+        <div class="slide absolute inset-0 flex items-center justify-center" data-transition="roll">
+            <div class="max-w-6xl mx-auto text-white px-12">
+                <h2 class="text-6xl font-bold mb-12 text-center bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                    Nuestras Colecciones
+                </h2>
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-transform">
+                        <div class="text-6xl mb-4 text-center">🎮</div>
+                        <h3 class="text-2xl font-bold mb-3 text-center text-pink-300">Geek & Gaming</h3>
+                        <p class="text-purple-100 text-center">Pixeles, consolas y personajes icónicos</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-transform">
+                        <div class="text-6xl mb-4 text-center">🎬</div>
+                        <h3 class="text-2xl font-bold mb-3 text-center text-blue-300">Cine & Series</h3>
+                        <p class="text-purple-100 text-center">Tus películas y shows favoritos</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-transform">
+                        <div class="text-6xl mb-4 text-center">🐾</div>
+                        <h3 class="text-2xl font-bold mb-3 text-center text-green-300">Animales</h3>
+                        <p class="text-purple-100 text-center">Mascotas adorables y fauna salvaje</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-transform">
+                        <div class="text-6xl mb-4 text-center">🍕</div>
+                        <h3 class="text-2xl font-bold mb-3 text-center text-yellow-300">Comida</h3>
+                        <p class="text-purple-100 text-center">Deliciosos diseños gastronómicos</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-transform">
+                        <div class="text-6xl mb-4 text-center">🎨</div>
+                        <h3 class="text-2xl font-bold mb-3 text-center text-purple-300">Arte</h3>
+                        <p class="text-purple-100 text-center">Obras maestras en tus pies</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-red-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-transform">
+                        <div class="text-6xl mb-4 text-center">🎵</div>
+                        <h3 class="text-2xl font-bold mb-3 text-center text-red-300">Música</h3>
+                        <p class="text-purple-100 text-center">Ritmos y bandas legendarias</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Por Qué Elegirnos -->
+        <div class="slide absolute inset-0 flex items-center justify-center" data-transition="slide">
+            <div class="max-w-5xl mx-auto text-white px-12">
+                <h2 class="text-6xl font-bold mb-12 text-center bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+                    ¿Por Qué SockStyle?
+                </h2>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-4xl">✨</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-yellow-300">Diseños Únicos</h3>
+                            <p class="text-purple-100">Colaboramos con artistas para crear diseños exclusivos que no encontrarás en ningún otro lugar.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-4xl">🌱</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-green-300">Sostenibles</h3>
+                            <p class="text-purple-100">Utilizamos algodón orgánico y procesos eco-friendly para cuidar el planeta.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-4xl">💪</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-orange-300">Calidad Premium</h3>
+                            <p class="text-purple-100">Materiales de primera calidad que garantizan comodidad y durabilidad.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-4xl">🎁</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-pink-300">Regalo Perfecto</h3>
+                            <p class="text-purple-100">Empaque especial y opciones de personalización para sorprender a quien más quieres.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Testimonios -->
+        <div class="slide absolute inset-0 flex items-center justify-center" data-transition="stretch">
+            <div class="max-w-5xl mx-auto text-white px-12">
+                <h2 class="text-6xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    Lo Que Dicen Nuestros Clientes
+                </h2>
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-purple-100 mb-4 italic">"¡Mis calcetines de Star Wars son increíbles! Recibo cumplidos todo el tiempo."</p>
+                        <p class="text-yellow-300 font-bold">- María G.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-purple-100 mb-4 italic">"Calidad excepcional y diseños únicos. Ya tengo 15 pares diferentes."</p>
+                        <p class="text-yellow-300 font-bold">- Carlos R.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                        <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                        <p class="text-purple-100 mb-4 italic">"El regalo perfecto para mi novio gamer. ¡Le encantaron!"</p>
+                        <p class="text-yellow-300 font-bold">- Ana L.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Contacto -->
+        <div class="slide absolute inset-0 flex items-center justify-center" data-transition="pair">
+            <div class="max-w-4xl mx-auto text-white px-12 text-center">
+                <h2 class="text-6xl font-bold mb-8 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                    ¡Únete a la Revolución de los Calcetines!
+                </h2>
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-12 border border-white/20 mb-8">
+                    <div class="text-7xl mb-6">🧦✨🧦</div>
+                    <p class="text-2xl mb-6 text-purple-100">Visítanos y descubre tu estilo</p>
+                    <div class="space-y-4 text-xl">
+                        <p>🌐 <span class="text-yellow-300 font-bold">www.sockstyle.com</span></p>
+                        <p>📧 <span class="text-yellow-300 font-bold">hola@sockstyle.com</span></p>
+                        <p>📱 <span class="text-yellow-300 font-bold">@sockstyle</span> en todas las redes</p>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold text-pink-300">¡Expresa tu personalidad desde los pies! 🚀</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 z-50">
+        <button id="prevBtn" class="bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white px-6 py-3 rounded-full border border-white/30 transition-all font-bold">
+            ← Anterior
+        </button>
+        <div id="slideIndicator" class="bg-white/20 backdrop-blur-lg px-6 py-3 rounded-full border border-white/30 text-white font-bold">
+            1 / 6
+        </div>
+        <button id="nextBtn" class="bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white px-6 py-3 rounded-full border border-white/30 transition-all font-bold">
+            Siguiente →
+        </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-2 bg-white/10 z-50">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 transition-all duration-500" style="width: 16.66%"></div>
+    </div>
+
+    <style>
+        .slide {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Stretch Transition - Como estirar un calcetín */
+        .slide[data-transition="stretch"].transitioning-out {
+            animation: stretchOut 0.8s ease-in-out forwards;
+        }
+
+        .slide[data-transition="stretch"].transitioning-in {
+            animation: stretchIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes stretchOut {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scaleX(1.5) scaleY(0.5); opacity: 0.5; }
+            100% { transform: scaleX(0) scaleY(2); opacity: 0; }
+        }
+
+        @keyframes stretchIn {
+            0% { transform: scaleX(0) scaleY(2); opacity: 0; }
+            50% { transform: scaleX(1.5) scaleY(0.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Pair Transition - Como emparejar calcetines */
+        .slide[data-transition="pair"].transitioning-out {
+            animation: pairOut 0.8s ease-in-out forwards;
+        }
+
+        .slide[data-transition="pair"].transitioning-in {
+            animation: pairIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes pairOut {
+            0% { transform: translateX(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateX(-100%) rotate(-20deg); opacity: 0; }
+        }
+
+        @keyframes pairIn {
+            0% { transform: translateX(100%) rotate(20deg); opacity: 0; }
+            100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+        }
+
+        /* Roll Transition - Como enrollar calcetines */
+        .slide[data-transition="roll"].transitioning-out {
+            animation: rollOut 0.8s ease-in-out forwards;
+        }
+
+        .slide[data-transition="roll"].transitioning-in {
+            animation: rollIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes rollOut {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: rotate(360deg) scale(0); opacity: 0; }
+        }
+
+        @keyframes rollIn {
+            0% { transform: rotate(-360deg) scale(0); opacity: 0; }
+            100% { transform: rotate(0deg) scale(1); opacity: 1; }
+        }
+
+        /* Slide Transition - Como deslizar un calcetín */
+        .slide[data-transition="slide"].transitioning-out {
+            animation: slideOut 0.8s ease-in-out forwards;
+        }
+
+        .slide[data-transition="slide"].transitioning-in {
+            animation: slideIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes slideOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100%); opacity: 0; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideIndicator = document.getElementById('slideIndicator');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateSlide(newIndex) {
+            if (newIndex < 0 || newIndex >= totalSlides) return;
+
+            const currentSlideEl = slides[currentSlide];
+            const newSlideEl = slides[newIndex];
+
+            // Add transitioning classes
+            currentSlideEl.classList.add('transitioning-out');
+            newSlideEl.classList.add('transitioning-in');
+
+            // Wait for animation to complete
+            setTimeout(() => {
+                currentSlideEl.classList.remove('active', 'transitioning-out');
+                newSlideEl.classList.add('active');
+                
+                setTimeout(() => {
+                    newSlideEl.classList.remove('transitioning-in');
+                }, 50);
+
+                currentSlide = newIndex;
+                updateUI();
+            }, 800);
+        }
+
+        function updateUI() {
+            slideIndicator.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            
+            prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+            nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                updateSlide(currentSlide - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                updateSlide(currentSlide + 1);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+
+        // Initialize
+        updateUI();
+    </script>
+</body>
+</html>
